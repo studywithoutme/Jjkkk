@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardio-Grip Platform Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#fcf4f6] text-slate-800 p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto space-y-6">
+        
+        <!-- Header & Control Panel -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-pink-100 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="bg-blue-600 text-white p-2 rounded-xl text-sm">🩺</span> Cardio-Grip Analysis Dashboard
+                </h1>
+                <p class="text-sm text-slate-500">ระบบจำลองและวิเคราะห์ความเสี่ยงโรคหัวใจจากแรงบีบมือ (Grip Trajectory Index)</p>
+            </div>
+            <button onclick="toggleModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-medium shadow-md transition flex items-center gap-2">
+                ✏️ กรอก/ปรับเปลี่ยนข้อมูลผู้ป่วย
+            </button>
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Column 1 & 2: User Profile & Core Metrics -->
+            <div class="lg:col-span-2 space-y-6">
+                
+                <!-- Profile Header Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-pink-100 flex flex-wrap justify-between items-center gap-4">
+                    <div class="flex items-center gap-4">
+                        <img id="user-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="User" class="w-16 h-16 rounded-full object-cover border-2 border-pink-200">
+                        <div>
+                            <h2 id="display-name" class="text-xl font-bold text-slate-900">Nattaya Srisuk</h2>
+                            <p id="display-demographic" class="text-sm text-slate-500">Age 32 | Female</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 text-center">
+                        <div class="bg-slate-50 px-4 py-2 rounded-xl border border-slate-100">
+                            <span class="text-xs text-slate-400 block">Height</span>
+                            <span id="display-height" class="font-bold text-slate-700">162 cm</span>
+                        </div>
+                        <div class="bg-slate-50 px-4 py-2 rounded-xl border border-slate-100">
+                            <span class="text-xs text-slate-400 block">Weight</span>
+                            <span id="display-weight" class="font-bold text-slate-700">58 kg</span>
+                        </div>
+                        <div class="bg-blue-50 px-4 py-2 rounded-xl border border-blue-100">
+                            <span class="text-xs text-blue-400 block">Date</span>
+                            <span class="font-bold text-blue-700">Today</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metrics 4 Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <!-- 1. Current Grip Strength -->
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-pink-100 relative overflow-hidden">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Current Grip Strength</span>
+                                <h3 class="text-3xl font-extrabold text-slate-900 mt-1"><span id="val-grip">32.5</span> <span class="text-base font-normal text-slate-500">kg</span></h3>
+                            </div>
+                            <span class="bg-amber-100 text-amber-700 p-2 rounded-xl text-lg">⚡</span>
+                        </div>
+                        <p id="val-grip-diff" class="text-xs text-emerald-600 font-medium mt-3">▲ +1.2 kg vs. last month</p>
+                    </div>
+
+                    <!-- 2. Grip Decline Rate -->
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-pink-100 relative overflow-hidden">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Grip Decline Rate</span>
+                                <h3 class="
